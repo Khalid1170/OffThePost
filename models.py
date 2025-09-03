@@ -1,7 +1,7 @@
 # models.py
 from datetime import datetime
 from sqlalchemy import UniqueConstraint, CheckConstraint
-from app import db
+from db import db
 
 # --- Association: Users <-> Groups ---
 class GroupMembership(db.Model):
@@ -45,6 +45,28 @@ class User(db.Model):
     # MVP votes (as voter and as candidate)
     mvp_votes_cast = db.relationship("MvpVote", foreign_keys="MvpVote.voter_id", backref="voter")
     mvp_votes_received = db.relationship("MvpVote", foreign_keys="MvpVote.voted_for_id", backref="candidate")
+
+    @property
+    def teams_played(self):
+        """List of teams the user has played for."""
+        from sqlalchemy.orm import joinedload
+        teams = db.session.query(SessionTeam).join(SessionTeamMembership).filter(SessionTeamMembership.user_id == self.id).options(joinedload(SessionTeam.session)).all()
+        return teams
+
+    @property
+    def goals_scored_count(self):
+        """Total goals scored by the user."""
+        return len(self.goals)
+
+    @property
+    def assists_count(self):
+        """Total assists by the user."""
+        return len(self.assists)
+
+    @property
+    def mvp_wins_count(self):
+        """Total MVP wins by the user."""
+        return len(self.mvp_votes_received)
 
     def __repr__(self):
         return f"<User {self.name}>"
