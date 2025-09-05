@@ -1,0 +1,96 @@
+
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: black; */
+    padding: 20px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+
+    /* border: 5px solid white; */
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    max-width: 1000px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+  }
+  
+  .otp {
+    flex: 1;
+  }
+  
+  .otp h1 {
+    font-size: 2.2rem;
+    color: #222;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+  
+  .otp .highlight {
+    color: #4f46e5; /* Indigo */
+  }
+  
+  .otp p {
+    font-size: 1.3rem;
+    color: black;
+    margin-bottom: 25px;
+  }
+  
+  .buttons {
+    /* display: flex; */
+    align-items: center;
+    text-align: center;
+    /* padding: 3%; */
+    width: 100%;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+  }
+  
+  .btn.primary {
+    background: #4f46e5;
+    color: #fff;
+  }
+  
+  .btn.primary:hover {
+    background: #4338ca;
+  }
+  
+  .btn.secondary {
+    background: #eee;
+    color: #333;
+  }
+  
+  .btn.secondary:hover {
+    background: #ddd;
+  }
+  
+  .pic {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pic img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
